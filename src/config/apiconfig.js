@@ -1,9 +1,10 @@
 
 import axios from 'axios';
 
-export const API_BASE_URL = 'https://ecomserver-bhasjar.up.railway.app/'
+export const API_BASE_URL = 'https://ecomserver-bhasjar.up.railway.app'
+const LOCALHOST='http://localhost:5454'
 
-
+export const API_BASE_URL = LOCALHOST
 
 const jwt = localStorage.getItem("jwt")
 
