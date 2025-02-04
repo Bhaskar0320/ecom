@@ -8,7 +8,7 @@ export const API_BASE_URL = window.location.hostname === "localhost"
   ? "http://localhost:5454" 
   : "https://ecomserver-bhasjar.up.railway.app";
 
-const token = localStorage.getItem("jwt")
+const jwt = localStorage.getItem("jwt")
 
 
 export const api = axios.create({
@@ -19,7 +19,7 @@ export const api = axios.create({
   // }
 })
 
-api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
 
 api.defaults.headers.post['Content-Type'] = 'application/json';
 
