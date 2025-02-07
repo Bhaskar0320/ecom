@@ -32,14 +32,20 @@ export const findProducts = (reqData) => async (dispatch) => {
     //                            &stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
     // console.log("product data", data)
 
-    await api.get(`/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=10000&minDiscount=10&category=${category}&stock=${stock}&sort=${sort}&pageNumber=0&pageSize=12`);
-    console.log("product data", data);
-
-    dispatch({ type: FIND_PRODUCT_SUCCESS, payload: data });
+    await api.get(`/api/products?color=${colors}&size=${sizes}&minPrice=0&maxPrice=10000&minDiscount=10&category=${category}&stock=null&sort=${sort}&pageNumber=0&pageSize=12`);
+    if (data && data.content && data.content.length > 0) {
+      console.log("Product data:", data);
+      dispatch({ type: FIND_PRODUCT_SUCCESS, payload: data });
+    } else {
+      console.log("No products found.");
+      dispatch({ type: FIND_PRODUCT_SUCCESS, payload: { content: [] } }); // Empty payload
+    }
   } catch (error) {
+    console.error("Error fetching products:", error);
     dispatch({ type: FIND_PRODUCT_FAILURE, payload: error.message });
-  }
 };
+
+}
 
 export const findProductsById = (reqData) => async (dispatch) => {
   dispatch({ type: FIND_PRODUCT_BY_ID_REQUEST });
@@ -54,3 +60,5 @@ export const findProductsById = (reqData) => async (dispatch) => {
     dispatch({ type: FIND_PRODUCT_BY_ID_FAILURE, payload: error.message });
   }
 };
+
+

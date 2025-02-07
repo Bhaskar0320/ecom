@@ -8,6 +8,9 @@ export const API_BASE_URL = window.location.hostname === "localhost"
   ? "http://localhost:5454" 
   : "//ecomserver-bhasjar.up.railway.app";
 
+// export const API_BASE_URL = "http://localhost:5454"
+
+
 // const token = localStorage.getItem("jwt")
 
 
