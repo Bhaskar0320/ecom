@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export const API_BASE_URL = window.location.hostname === "localhost" 
   ? "http://localhost:5454" 
-  : "https://ecomserver-bhasjar.up.railway.app";
+  : "//ecomserver-bhasjar.up.railway.app";
 
 // const token = localStorage.getItem("jwt")
 
