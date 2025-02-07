@@ -23,16 +23,29 @@ export const findProducts = (reqData) => async (dispatch) => {
     pageSize,
   } = reqData;
 
-  //http://localhost:5454/api/products?color=&size=S&minPrice=1999&maxPrice=2999&minDiscount=0&category=&stock=in_stock&sort=price_low&pageNumber=0&pageSize=10
+
+  if (colors) queryParams.append("color", colors);
+  if (sizes) queryParams.append("size", sizes);
+  if (minPrice !== null && minPrice !== undefined) queryParams.append("minPrice", minPrice);
+  if (maxPrice !== null && maxPrice !== undefined) queryParams.append("maxPrice", maxPrice);
+  if (minDiscount !== null && minDiscount !== undefined) queryParams.append("minDiscount", minDiscount);
+  if (category) queryParams.append("category", category);
+  if (stock) queryParams.append("stock", stock);
+  if (sort) queryParams.append("sort", sort);
+  if (pageNumber !== null && pageNumber !== undefined) queryParams.append("pageNumber", pageNumber);
+  if (pageSize !== null && pageSize !== undefined) queryParams.append("pageSize", pageSize);  
+
   try {
     dispatch({ type: FIND_PRODUCT_SUCCESS });
-    const { data } =
-    //   await api.get(`/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}
+
+//    cont {data} =       await api.get(`/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}
     //                    &minDiscount=${minDiscount}&category=${category}
     //                            &stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
     // console.log("product data", data)
 
-    await api.get(`/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=${minDiscount}&category=${category}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
+
+    const { data } = await api.get(`/api/products?${queryParams.toString()}`);
+    
     if (data && data.content && data.content.length > 0) {
       console.log("Product data:", data);
       dispatch({ type: FIND_PRODUCT_SUCCESS, payload: data });
