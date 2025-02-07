@@ -23,23 +23,23 @@ export const findProducts = (reqData) => async (dispatch) => {
     pageSize,
   } = reqData;
 
-  const queryParams = new URLSearchParams();
+  // const queryParams = new URLSearchParams();
 
-  if (colors) queryParams.append("color", colors);
-  if (sizes) queryParams.append("size", sizes);
-  if (minPrice !== null && minPrice !== undefined) queryParams.append("minPrice", minPrice);
-  if (maxPrice !== null && maxPrice !== undefined) queryParams.append("maxPrice", maxPrice);
-  if (minDiscount == null && minDiscount == undefined) queryParams.append("minDiscount", 10);
-  if (category) queryParams.append("category", category);
-  if (stock) queryParams.append("stock", stock);
-  if (sort) queryParams.append("sort", sort);
-  if (pageNumber !== null && pageNumber !== undefined) queryParams.append("pageNumber", pageNumber);
-  if (pageSize !== null && pageSize !== undefined) queryParams.append("pageSize", pageSize);  
+  // if (colors) queryParams.append("color", colors);
+  // if (sizes) queryParams.append("size", sizes);
+  // if (minPrice !== null && minPrice !== undefined) queryParams.append("minPrice", minPrice);
+  // if (maxPrice !== null && maxPrice !== undefined) queryParams.append("maxPrice", maxPrice);
+  // if (minDiscount == null && minDiscount == undefined) queryParams.append("minDiscount", 10);
+  // if (category) queryParams.append("category", category);
+  // if (stock) queryParams.append("stock", stock);
+  // if (sort) queryParams.append("sort", sort);
+  // if (pageNumber !== null && pageNumber !== undefined) queryParams.append("pageNumber", pageNumber);
+  // if (pageSize !== null && pageSize !== undefined) queryParams.append("pageSize", pageSize);  
 
   try {
     dispatch({ type: FIND_PRODUCT_SUCCESS });
 
-   const {data} = await api.get(`/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=${minDiscount}&category=${category}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
+   const {data} = await api.get(`/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}&minDiscount=&category=${category}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
     console.log("product data", data)
 
 
