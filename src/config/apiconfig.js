@@ -11,6 +11,10 @@ export const API_BASE_URL = window.location.hostname === "localhost"
 // const token = localStorage.getItem("jwt")
 
 
+//modifying the github repo
+
+
+
 export const api = axios.create({
   baseURL: API_BASE_URL,
   headers:{
@@ -26,6 +30,9 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
+
+
+
 
 // api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
 
