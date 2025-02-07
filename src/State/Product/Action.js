@@ -39,9 +39,8 @@ export const findProducts = (reqData) => async (dispatch) => {
   try {
     dispatch({ type: FIND_PRODUCT_SUCCESS });
 
-   cont {data} =       await api.get(`/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}
-                       &minDiscount=${minDiscount}&category=${category}
-                               &stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
+   const {data} = await api.get(`/api/products?color=${colors}&size=${sizes}&minPrice=${minPrice}&maxPrice=${maxPrice}
+                       &minDiscount=${minDiscount}&category=${category}&stock=${stock}&sort=${sort}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
     console.log("product data", data)
 
 
