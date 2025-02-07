@@ -23,6 +23,7 @@ export const findProducts = (reqData) => async (dispatch) => {
     pageSize,
   } = reqData;
 
+  const queryParams = new URLSearchParams();
 
   if (colors) queryParams.append("color", colors);
   if (sizes) queryParams.append("size", sizes);
