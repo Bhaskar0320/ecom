@@ -29,7 +29,7 @@ export const findProducts = (reqData) => async (dispatch) => {
   if (sizes) queryParams.append("size", sizes);
   if (minPrice !== null && minPrice !== undefined) queryParams.append("minPrice", minPrice);
   if (maxPrice !== null && maxPrice !== undefined) queryParams.append("maxPrice", maxPrice);
-  if (minDiscount !== null && minDiscount !== undefined) queryParams.append("minDiscount", minDiscount);
+  if (minDiscount == null && minDiscount == undefined) queryParams.append("minDiscount", 10);
   if (category) queryParams.append("category", category);
   if (stock) queryParams.append("stock", stock);
   if (sort) queryParams.append("sort", sort);
