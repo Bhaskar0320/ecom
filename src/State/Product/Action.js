@@ -49,6 +49,7 @@ export const findProducts = (reqData) => async (dispatch) => {
       console.log("Product data:", data);
       dispatch({ type: FIND_PRODUCT_SUCCESS, payload: data });
     } else {
+      <div>Currently No Product Found</div>
       console.log("No products found.");
       dispatch({ type: FIND_PRODUCT_SUCCESS, payload: { content: [] } }); // Empty payload
     }
