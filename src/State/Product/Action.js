@@ -36,6 +36,9 @@ export const findProducts = (reqData) => async (dispatch) => {
   // if (pageNumber !== null && pageNumber !== undefined) queryParams.append("pageNumber", pageNumber);
   // if (pageSize !== null && pageSize !== undefined) queryParams.append("pageSize", pageSize);  
 
+
+  //adding new line just for testing
+
   try {
     dispatch({ type: FIND_PRODUCT_SUCCESS });
 
